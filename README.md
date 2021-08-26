@@ -1,5 +1,6 @@
 # loggey
-A cross platform C++17 single-header console logging library
+[![CodeFactor](https://www.codefactor.io/repository/github/spedzay/loggey/badge)](https://www.codefactor.io/repository/github/spedzay/loggey)
+A cross platform(NOT YET) C++17 single-header console logging library
 
 ## How to use?
 you can compile using cmake to build the example,
