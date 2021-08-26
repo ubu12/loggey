@@ -1,5 +1,4 @@
-# loggey
-[![CodeFactor](https://www.codefactor.io/repository/github/spedzay/loggey/badge)](https://www.codefactor.io/repository/github/spedzay/loggey)
+# loggey [![CodeFactor](https://www.codefactor.io/repository/github/spedzay/loggey/badge)](https://www.codefactor.io/repository/github/spedzay/loggey)
 A cross platform(NOT YET) C++17 single-header console logging library
 
 ## How to use?
