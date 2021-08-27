@@ -186,7 +186,8 @@ namespace loggey {
 		SetConsoleTextAttribute(handle, colors::black << 4 | color);
 #endif // LOGGEY_WIN
 #ifdef LOGGEY_UNIX
-
+        const std::string to_print = "\033["+std::to_string(color)+"m";
+        std::cout << to_print;
 #endif // LOGGEY_UNIX
 	}
 
