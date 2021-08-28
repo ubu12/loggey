@@ -235,7 +235,7 @@ namespace loggey {
 			setConsoleColor(logtype.color); std::cout << logtype.prefix;
 			setConsoleColor(loggey_settings::flagColonColor); std::cout << ": ";
 		}
-		setConsoleColor(colors::white);  std::cout << Text << std::endl;;
+		setConsoleColor(loggey_settings::textColor); std::cout << Text << std::endl;;
 	}
 }
 // === End loggey namespace === //
