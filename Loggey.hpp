@@ -227,7 +227,7 @@ namespace loggey {
 		// If addPrefix is a flag from logtype we will add [this] around the prefix of the log.
 		if (logtype.flags & logTypeFlags::addPrefixEncasing) {
 			setConsoleColor(loggey_settings::flagBracketsColor); std::cout << "[";
-			setConsoleColor(loggey_settings::flagPlusColor); std::cout << logtype.prefix;
+			setConsoleColor(logtype.color); std::cout << logtype.prefix;
 			setConsoleColor(loggey_settings::flagBracketsColor); std::cout << "] ";
 		}
 		// if theres no flags in logtype we will just write the colored prefix like normal.
