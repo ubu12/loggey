@@ -179,7 +179,7 @@ namespace loggey {
 		};
 	};
 
-	void setConsoleColor(uint8_t color)
+	inline void setConsoleColor(uint8_t color)
 	{
 #ifdef LOGGEY_WIN
 		static const HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
