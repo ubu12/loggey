@@ -9,31 +9,9 @@
 	console logging library.
 
 	How do I use Loggey?
-	heres an example application!:
-
-	#include <iostream>
-	#include "Loggey.hpp"
-
-	int main() {
-		loggey::logType ALERT = { loggey::colors::red,
-		"ALERT", loggey::logTypeFlags::addPlus};
-		// the flag addPlus appends [+] to the prefix
-
-		// We pass in our ALERT logType and some text to be logged.
-		loggey::log(ALERT, "stalin is a bad dev!!!!");
-
-		ALERT.prefix = "WARNING"; // we change the  logType's prefix
-		ALERT.color = loggey::colors::yellow; // We change the logType's Prefix Color
-		loggey::log(ALERT, "JK stalin best dev.");
-
-		return 1;
-	}
-
-	what if I want to change to colors for text and prefixes?
-	in the loggey namespace theres a section labled "Loggey Settings"
-	it explains how to easily change colors. you may also change them through
-	the loggey_settings namespace in loggey::
-
+	there is an example application and docs are on the github:
+	https://github.com/Spedzay/loggey/edit/main/Loggey.hpp
+	
 	Contact me:
 	- mail: admin@ambrosia.club
 	- matrix: @spedzay:straya.xyz
