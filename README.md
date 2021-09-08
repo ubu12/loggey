@@ -26,29 +26,29 @@ log(ALERT, "Loggey, the single header C++17 logging library");
 `
 This will Log `[+] Alert: Loggey, the single header C++17 logging library`
 
-You may also change colors for text defaults in the loggey.hpp file (will change how you can modify colors and settings)
-find the loggey_settings namespace and change any of the fields to your liking!
-Lets make the text color magenta by default:
-Normally its:
-`textColor = loggey::colors::white`
-But we'll change it to:
-`textColor = loggey::colors::magenta`
-Now everytime we log something the text will be magenta.
-We can also change colors on the fly:
+You may also change colors for text defaults in the loggey.hpp file (will change how you can modify colors and settings) <br>
+find the loggey_settings namespace and change any of the fields to your liking! <br>
+Lets make the text color magenta by default: <br>
+Normally its: <br>
+`textColor = loggey::colors::white` <br>
+But we'll change it to: <br>
+`textColor = loggey::colors::magenta` <br>
+Now everytime we log something the text will be magenta. <br>
+We can also change colors on the fly: <br>
 `	
 loggey_settings::textColor = colors::magenta;
 log(ALERT, "Loggey, the single header C++17 logging library");
 loggey_settings::textColor = colors::white;
 log(ALERT, "Loggey is written by Spedzay");
-`
-This will change the color from magenta to white on the fly!
-Im planning on adding a single use color change down the road so you dont have to manually reset stuff.
+` <br>
+This will change the color from magenta to white on the fly! <br>
+Im planning on adding a single use color change down the road so you dont have to manually reset stuff. <br>
 
-You can also edit fields from logType's on the fly:
+You can also edit fields from logType's on the fly: <br>
 `
 ALERT.prefix = "Info";
-`
-Thats about it for Loggey right now, more features are planned!
+` <br>
+Thats about it for Loggey right now, more features are planned! <br>
 
 
 
