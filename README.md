@@ -10,21 +10,22 @@ Loggey.hpp is the code for all of loggey
 and loggey.cpp is a demo application.
 
 ## How to use Loggey
-To log something basic you will need to create a loggey::logType
-here's some syntax for that:
+To log something basic you will need to create a loggey::logType <br>
+here's some syntax for that: <br>
 `
 logType ALERT = { colors::red,
 	"Alert", logTypeFlags::addPlus };
-`
-This will define a logType called ALERT thats prefix is "Alert" and is red.
-We also add [+] in front of it using the flag logTypeFlags::addPlus
+` <br>
+This will define a logType called ALERT thats prefix is "Alert" and is red. <br>
+We also add [+] in front of it using the flag logTypeFlags::addPlus <br>
 
-Now lets log some text!
-In our main() function or wherever you want:
+Now lets log some text! <br>
+In our main() function or wherever you want: <br>
 `
 log(ALERT, "Loggey, the single header C++17 logging library");
 `
-This will Log `[+] Alert: Loggey, the single header C++17 logging library`
+<br>
+This will Log `[+] Alert: Loggey, the single header C++17 logging library` <br>
 
 You may also change colors for text defaults in the loggey.hpp file (will change how you can modify colors and settings) <br>
 find the loggey_settings namespace and change any of the fields to your liking! <br>
