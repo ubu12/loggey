@@ -2,22 +2,36 @@
 // written by: Spedzay
 
 #include "Loggey.hpp"
+
 #include <iostream>
+
 using namespace std;
+using namespace loggey;
+
+logType ALERT = { colors::red,
+	"Alert", logTypeFlags::addPlus };
+
+logType WARNING = { colors::orange,
+	"Warning", logTypeFlags::addPlus };
+
+logType MESSAGE = { colors::light_blue,
+	"LOG", logTypeFlags::addPlus };
 
 
 int main() {
-    loggey::logType test = { loggey::colors::red,
-        "ALERT", loggey::logTypeFlags::addPlus };
+	WARNING.prefix = "Init";
+	WARNING.flags = logTypeFlags::addPrefixEncasing;
+	loggey_settings::textColor = colors::magenta;
 
-    loggey::log(test, "stalin will suck your dick for");
-    test.prefix = "Money";
-    test.color = loggey::colors::magenta;
+	log(WARNING, "Loggey, the single header C++17 logging library");
 
+	loggey_settings::textColor = colors::white;
+	WARNING.flags = logTypeFlags::addPlus;
+	WARNING.prefix = "Warning";
 
-    std::cout << "\033[0;" <<  std::to_string(32) << "31m";
-    loggey::loggey_settings::flagBracketsColor = loggey::colors::gray;
-    loggey::log(test, "20$");
+	log(MESSAGE, "Loggey is written by Spedzay");
+	log(MESSAGE, "Any contributions are welcome!");
+	log(MESSAGE, "Its under MIT License, tho its really bad.");
 
     std::cin.get();
     return 0;
