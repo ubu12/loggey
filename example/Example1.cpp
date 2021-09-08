@@ -1,7 +1,7 @@
 // Loggey example.
 // written by: Spedzay
 
-#include "Loggey.hpp"
+#include "../include/Loggey.hpp"
 
 using namespace std;
 using namespace loggey;
