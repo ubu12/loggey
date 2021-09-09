@@ -144,6 +144,7 @@ namespace loggey {
 		inline uint8_t prefixColor = loggey::colors::red;
 		inline uint8_t backgroundColor = loggey::colors::black;
 
+		inline bool timeUTC = true;
 
 	}
 
@@ -152,8 +153,8 @@ namespace loggey {
 		enum Value {
 			addPlus = 0x01,
 			addPrefixEncasing = 0x02,
-			addBackground = 0x04,
-			addTime = 0x08
+			addTime = 0x04 
+			/*addTime = 0x08 */
 			//SOMETHING_ELSE = 0x10,
 			//SOMETHING_COMPLETELY_DIFFERENT = 0x20
 		};
@@ -206,10 +207,28 @@ namespace loggey {
 	inline void log(const logType& logtype, const std::string& Text) {
 		// If addTime is a flag from logtype we will add the time to the log
 		if (logtype.flags & logTypeFlags::addTime) {
-			std::time_t result = std::time(nullptr);
-			struct tm* tmp = gmtime(&result);
+			
+			// Current date/time based on current system
+			time_t now = time(0);
 
-			setConsoleColor(loggey_settings::timeStampColor); std::cout << tmp->tm_hour << ":" << tmp->tm_min << ":" << tmp->tm_sec << " ";
+			// Convert now to tm struct for local timezone
+			tm* localtm = localtime(&now);
+			
+			setConsoleColor(loggey_settings::timeStampColor);
+			if (loggey_settings::timeUTC) {
+				tm* gmtm = gmtime(&now);
+				if (gmtm != NULL) {
+					std::cout << gmtm->tm_hour << ":" << gmtm->tm_min << ":" << gmtm->tm_sec << " ";
+				}
+				else {
+					// if we cant do utc we goto cantUTC
+					goto cantUTC;
+				}
+			}
+			else {
+				cantUTC:
+				std::cout << localtm->tm_hour << ":" << localtm->tm_min << ":" << localtm->tm_sec << " ";
+			}
 
 		}
 		// If addPlus is a flag from logtype we will add a [+] to the log.
