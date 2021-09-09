@@ -9,9 +9,31 @@
 	console logging library.
 
 	How do I use Loggey?
-	there is an example application and docs are on the github:
-	https://github.com/Spedzay/loggey/edit/main/Loggey.hpp
-	
+	heres an example application!:
+
+	#include <iostream>
+	#include "Loggey.hpp"
+
+	int main() {
+		loggey::logType ALERT = { loggey::colors::red,
+		"ALERT", loggey::logTypeFlags::addPlus};
+		// the flag addPlus appends [+] to the prefix
+
+		// We pass in our ALERT logType and some text to be logged.
+		loggey::log(ALERT, "stalin is a bad dev!!!!");
+
+		ALERT.prefix = "WARNING"; // we change the  logType's prefix
+		ALERT.color = loggey::colors::yellow; // We change the logType's Prefix Color
+		loggey::log(ALERT, "JK stalin best dev.");
+
+		return 1;
+	}
+
+	what if I want to change to colors for text and prefixes?
+	in the loggey namespace theres a section labled "Loggey Settings"
+	it explains how to easily change colors. you may also change them through
+	the loggey_settings namespace in loggey::
+
 	Contact me:
 	- mail: admin@ambrosia.club
 	- matrix: @spedzay:straya.xyz
@@ -51,6 +73,7 @@
 // - Standard Library Includes
 #include <iostream>
 #include <string>
+#include <ctime>    
 
 // Check if we're on Windows or a Unix based system
 #if defined(_WIN32) || defined(_WIN64)
@@ -136,6 +159,7 @@ namespace loggey {
 		inline uint8_t flagPlusColor = loggey::colors::yellow ;
 		inline uint8_t flagBracketsColor = loggey::colors::light_gray;
 		inline uint8_t flagColonColor = loggey::colors::white;
+		inline uint8_t timeStampColor = loggey::colors::light_gray;
 
 		// Generic
 		inline uint8_t textColor = loggey::colors::white;
@@ -149,9 +173,9 @@ namespace loggey {
 	struct logTypeFlags {
 		enum Value {
 			addPlus = 0x01,
-			addPrefixEncasing = 0x02/*,
-			addBackground = 0x04 */
-			//SOMETHING = 0x08,
+			addPrefixEncasing = 0x02,
+			addBackground = 0x04,
+			addTime = 0x08
 			//SOMETHING_ELSE = 0x10,
 			//SOMETHING_COMPLETELY_DIFFERENT = 0x20
 		};
@@ -169,18 +193,24 @@ namespace loggey {
 #endif // LOGGEY_UNIX
 	}
 
+
+
 	class logType {
 	public:
+
 		uint8_t color = loggey_settings::prefixColor;  // Prefix Color
 		std::string prefix; // Prefix text aka "PrefixExample: LogText"
 		int flags; // Flags aka addPlus will make it "[+] PrefixExample: LogText"
 
-		// ik this is bad but my ass cant figure out how to do it.
+		// ik this is bad but my ass cant figure out how to do it. (constructor overloading :vomit:)  i think this is the best way to do it, c++ 2021 fix when - stalin
+
+
 		logType(uint8_t prefixColor, std::string prefixText, int logFlag) {
 			color = prefixColor;
 			prefix = prefixText;
 			flags = logFlag;
 		}
+		
 		logType(uint8_t prefixColor, std::string prefixText) {
 			color = prefixColor;
 			prefix = prefixText;
@@ -196,6 +226,14 @@ namespace loggey {
 	};
 
 	inline void log(const logType& logtype, const std::string& Text) {
+		// If addTime is a flag from logtype we will add the time to the log
+		if (logtype.flags & logTypeFlags::addTime) {
+			std::time_t result = std::time(nullptr);
+			struct tm* tmp = gmtime(&result);
+
+			setConsoleColor(loggey_settings::timeStampColor); std::cout << tmp->tm_hour << ":" << tmp->tm_min << ":" << tmp->tm_sec << " ";
+
+		}
 		// If addPlus is a flag from logtype we will add a [+] to the log.
 		if (logtype.flags & logTypeFlags::addPlus) {
 			setConsoleColor(loggey_settings::flagBracketsColor);  std::cout << "[";
@@ -208,6 +246,7 @@ namespace loggey {
 			setConsoleColor(logtype.color); std::cout << logtype.prefix;
 			setConsoleColor(loggey_settings::flagBracketsColor); std::cout << "] ";
 		}
+	
 		// if theres no flags in logtype we will just write the colored prefix like normal.
 		else {
 			setConsoleColor(logtype.color); std::cout << logtype.prefix;
@@ -215,7 +254,9 @@ namespace loggey {
 		}
 		setConsoleColor(loggey_settings::textColor); std::cout << Text << std::endl;;
 	}
+	
 }
+
 // === End loggey namespace === //
 
 // This will let you use lg as the namespace ONLY if its not already defined.

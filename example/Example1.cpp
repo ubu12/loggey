@@ -8,6 +8,9 @@ using namespace loggey;
 
 logType MESSAGE = { colors::orange,
 	"LOG", logTypeFlags::addPrefixEncasing };
+    
+logType TIME = { colors::light_blue,
+	"LocalTime", logTypeFlags::addTime };
 
 
 int main() {
