@@ -149,8 +149,8 @@ namespace loggey {
 	struct logTypeFlags {
 		enum Value {
 			addPlus = 0x01,
-			addPrefixEncasing = 0x02,
-			addBackground = 0x04
+			addPrefixEncasing = 0x02/*,
+			addBackground = 0x04 */
 			//SOMETHING = 0x08,
 			//SOMETHING_ELSE = 0x10,
 			//SOMETHING_COMPLETELY_DIFFERENT = 0x20
