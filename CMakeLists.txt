@@ -8,6 +8,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Add source to this project's executable.
-add_executable (Loggey "Loggey.cpp" "Loggey.hpp")
+add_executable (Loggey "example/Example1.cpp" "include/Loggey.hpp")
 
 # TODO: Add tests and install targets if needed.

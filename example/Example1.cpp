@@ -6,18 +6,19 @@
 using namespace std;
 using namespace loggey;
 
-logType MESSAGE = { colors::light_blue,
-	"LOG", logTypeFlags::addEncasing };
+logType MESSAGE = { colors::orange,
+	"LOG", logTypeFlags::addPrefixEncasing };
 
 
 int main() {
     MESSAGE.prefix = "Init";
-    MESSAGE.flags = logTypeFlags::addPrefixEncasing;
     loggey_settings::textColor = colors::magenta;
 
     log(MESSAGE, "Loggey, the single header C++17 logging library");
 
+    MESSAGE.color = colors::light_blue;
     loggey_settings::textColor = colors::white;
+    
     MESSAGE.flags = logTypeFlags::addPlus;
     MESSAGE.prefix = "LOG";
 
