@@ -134,15 +134,15 @@ namespace loggey {
 	*/
 	namespace loggey_settings {
 		// Flags
-		inline uint8_t flagPlusColor = loggey::colors::pink;
-		inline uint8_t flagBracketsColor = loggey::colors::light_gray;
-		inline uint8_t flagTimeColor = loggey::colors::gray;
+		static uint8_t flagPlusColor = loggey::colors::pink;
+		static uint8_t flagBracketsColor = loggey::colors::light_gray;
+		static uint8_t flagTimeColor = loggey::colors::gray;
 
 		// Generic
-		inline uint8_t textColor = loggey::colors::white;
-		inline uint8_t prefixColor = loggey::colors::red;
+		static uint8_t textColor = loggey::colors::white;
+		static uint8_t prefixColor = loggey::colors::red;
 		
-		inline bool timeUTC = true;
+		static bool timeUTC = true;
 
 	}
 

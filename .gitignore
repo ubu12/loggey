@@ -1,2 +1,9 @@
 /out
 /.vs
+/build
+
+*.exe
+
+#please add any other gitignores for your own build setup and ide!
+
+

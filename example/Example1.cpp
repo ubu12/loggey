@@ -24,6 +24,6 @@ int main() {
     log(LOG, "Any contributions are welcome!");
     log(LOG, "Loggey is indev as of right now.");
 
-    std::cin.get();
+    cin.get();
     return 0;
 }
