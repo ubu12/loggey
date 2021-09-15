@@ -137,13 +137,13 @@ namespace loggey {
 		static uint8_t flagPlusColor = loggey::colors::pink;
 		static uint8_t flagBracketsColor = loggey::colors::light_gray;
 		static uint8_t flagTimeColor = loggey::colors::gray;
+		static bool timeUTC = true;
+
 
 		// Generic
 		static uint8_t textColor = loggey::colors::white;
 		static uint8_t prefixColor = loggey::colors::red;
 		
-		static bool timeUTC = true;
-
 	}
 
 	// logType flags, you can use them in the logType class
@@ -173,20 +173,17 @@ namespace loggey {
 
 	class logType {
 	public:
-
 		uint8_t color = loggey_settings::prefixColor;  // Prefix Color
 		std::string prefix; // Prefix text aka "PrefixExample: LogText"
 		int flags; // Flags aka addPlus will make it "[+] PrefixExample: LogText"
 
 		// ik this is bad but my ass cant figure out how to do it. (constructor overloading :vomit:)  i think this is the best way to do it, c++ 2021 fix when - stalin
-
-
+		// TODO: ^
 		logType(uint8_t prefixColor, std::string prefixText, int logFlag) {
 			color = prefixColor;
 			prefix = prefixText;
 			flags = logFlag;
 		}
-		
 		logType(uint8_t prefixColor, std::string prefixText) {
 			color = prefixColor;
 			prefix = prefixText;
@@ -217,7 +214,7 @@ namespace loggey {
 					std::cout << gmtm->tm_hour << ":" << gmtm->tm_min << ":" << gmtm->tm_sec << " ";
 				}
 				else {
-					// if we cant do utc we goto cantUTC
+					// if we cant do UTC we 'goto cantUTC'
 					goto cantUTC;
 				}
 			}
@@ -239,7 +236,7 @@ namespace loggey {
 			setConsoleColor(logtype.color); std::cout << logtype.prefix;
 			setConsoleColor(loggey_settings::flagBracketsColor); std::cout << "] ";
 		}
-	
+		
 		// if theres no flags in logtype we will just write the colored prefix like normal.
 		else {
 			setConsoleColor(logtype.color); std::cout << logtype.prefix << " ";
