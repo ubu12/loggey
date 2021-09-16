@@ -10,7 +10,7 @@
 
 	How do I use Loggey?
  	there is an example application and docs are on the github:
-	https://github.com/Spedzay/loggey/edit/main/Loggey.hpp
+	https://github.com/Spedzay/loggey/
 	
 	Contact me:
 	- mail: admin@ambrosia.club
