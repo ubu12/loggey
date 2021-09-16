@@ -3,7 +3,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/spedzay/loggey/badge)](https://www.codefactor.io/repository/github/spedzay/loggey)
 
 A cross platform C++17 Logging library
-Easily LOG output to the terminal/console(windows)
+for logging output to the terminal/console(windows)
 
 ## How to use? ##
 
