@@ -5,6 +5,8 @@
 A cross platform C++17 Logging library
 for logging output to the terminal/console(windows)
 
+![unknown](https://user-images.githubusercontent.com/84446427/133694917-883c2027-8e48-401d-9112-09a806621578.png)
+
 ## How to use? ##
 
 Just `#include "loggey.hpp"` Into your project and compile with C++17
@@ -13,14 +15,14 @@ Tested Compilers: gcc, msvc clang-cl, mingw(had issues with inline variables for
 
 ## Loggey Documentation
 
-```c
+```cpp
 loggey::logType ALERT = { loggey::colors::red,
 	"Alert", loggey::logTypeFlags::addPlus };
 ```
 This will define a logType called ALERT thats prefix is "Alert" and is red.
 We also add [+] in front of it using the flag logTypeFlags::addPlus
 
-```c
+```cpp
 log(ALERT, "Loggey, the single header C++17 logging library");
 ```
 Now lets log some text! 
