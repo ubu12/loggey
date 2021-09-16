@@ -8,6 +8,7 @@ for logging output to the terminal/console(windows)
 ## How to use? ##
 
 Just `#include "loggey.hpp"` Into your project and compile with C++17
+
 Tested Compilers: gcc, msvc clang-cl, mingw(had issues with inline variables for me)
 
 ## Loggey Documentation
