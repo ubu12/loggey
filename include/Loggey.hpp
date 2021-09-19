@@ -189,19 +189,19 @@ namespace loggey {
 
 		// ik this is bad but my ass cant figure out how to do it. (constructor overloading :vomit:)  i think this is the best way to do it, c++ 2021 fix when - stalin
 		// TODO: ^
-		logType(uint8_t prefixColor, std::string prefixText, int logFlag) {
+		logType(uint8_t prefixColor, const std::string& prefixText, int logFlag) {
 			color = prefixColor;
 			prefix = prefixText;
 			flags = logFlag;
 		}
-		logType(uint8_t prefixColor, std::string prefixText) {
+		logType(uint8_t prefixColor, const std::string& prefixText) {
 			color = prefixColor;
 			prefix = prefixText;
 		}
-		logType(std::string prefixText) {
+		logType(const std::string& prefixText) {
 			prefix = prefixText;
 		}
-		logType(std::string prefixText, int logFlag) {
+		logType(const std::string& prefixText, int logFlag) {
 			flags = logFlag;
 			prefix = prefixText;
 		}
