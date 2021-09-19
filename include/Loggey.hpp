@@ -75,7 +75,6 @@
 
 // Unix
 #ifdef LOGGEY_UNIX
-// Unix and Unix-like specific includes and defines
 #endif
 
 namespace loggey {
@@ -144,7 +143,7 @@ namespace loggey {
 		static uint8_t flagPlusColor = loggey::colors::pink;
 		static uint8_t flagBracketsColor = loggey::colors::light_gray;
 		static uint8_t flagTimeColor = loggey::colors::gray;
-		static bool timeUTC = true;
+		static bool timeUTC = false;
 
 		// Generic
 		static uint8_t textColor = loggey::colors::white;
@@ -214,7 +213,7 @@ namespace loggey {
 		if (logtype.flags & logTypeFlags::addTime) {
 			// Current date/time based on current system
 			time_t now_seconds = time(0);
-    		struct tm *now = gmtime_r(&now_seconds, now);
+    		struct tm *now = gmtime(&now_seconds);
 			// Convert now to tm struct for local timezone
 			tm* localtm = localtime_r(&now_seconds, now);
 			
