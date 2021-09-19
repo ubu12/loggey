@@ -137,13 +137,11 @@ namespace loggey {
 		static uint8_t flagPlusColor = loggey::colors::pink;
 		static uint8_t flagBracketsColor = loggey::colors::light_gray;
 		static uint8_t flagTimeColor = loggey::colors::gray;
-		static bool timeUTC = true;
-
+		static bool timeUTC = false;
 
 		// Generic
 		static uint8_t textColor = loggey::colors::white;
 		static uint8_t prefixColor = loggey::colors::red;
-		
 	}
 
 	// logType flags, you can use them in the logType class
@@ -168,8 +166,6 @@ namespace loggey {
         std::cout << to_print;
 #endif // LOGGEY_UNIX
 	}
-
-
 
 	class logType {
 	public:
@@ -202,14 +198,14 @@ namespace loggey {
 		// If addTime is a flag from logtype we will add the time to the log
 		if (logtype.flags & logTypeFlags::addTime) {
 			// Current date/time based on current system
-			time_t now = time(0);
-
+			time_t now_seconds = time(0);
+    		struct tm *now = gmtime(&now_seconds);
 			// Convert now to tm struct for local timezone
-			tm* localtm = localtime(&now);
+			tm* localtm = localtime_r(&now_seconds, now);
 			
 			setConsoleColor(loggey_settings::flagTimeColor);
 			if (loggey_settings::timeUTC) {
-				tm* gmtm = gmtime(&now);
+				tm* gmtm = gmtime_r(&now_seconds, now);
 				if (gmtm != NULL) {
 					std::cout << gmtm->tm_hour << ":" << gmtm->tm_min << ":" << gmtm->tm_sec << " ";
 				}

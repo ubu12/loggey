@@ -13,13 +13,11 @@ logType MESSAGE = { colors::orange,
 logType LOG = { colors::light_blue,
 	"LOG", logTypeFlags::addTime };
 
-
-
 int main() {
     loggey_settings::textColor = colors::magenta;
     
     log(MESSAGE, "-- Loggey, the single header C++17 logging library --");
-
+													
     loggey_settings::textColor = colors::white;
     
     log(LOG, "Loggey is written by Spedzay");

@@ -4,6 +4,7 @@
 /build
 
 *.exe
+*.out
 
 #please add any other gitignores for your own build setup and ide!
 
