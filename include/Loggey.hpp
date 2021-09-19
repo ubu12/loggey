@@ -67,6 +67,7 @@
 // Operating System Specific #Defines and Includes
 // Windows
 #ifdef LOGGEY_WIN
+// Windows specific includes and defines
 #include <Windows.h>
 #define WIN32_LEAN_AND_MEAN
 #define VC_EXTRALEAN
@@ -74,6 +75,7 @@
 
 // Unix
 #ifdef LOGGEY_UNIX
+// Unix and Unix-like specific includes and defines
 #endif
 
 namespace loggey {
@@ -149,7 +151,10 @@ namespace loggey {
 		static uint8_t prefixColor = loggey::colors::red;
 	}
 
-	// logType flags, you can use them in the logType class
+	// Flags for logType's, What each flag does is documented on the github
+	// When creating a logType with multiple flags do it like this:
+	// addPlus | addPrefixEncasing | addTime
+	// With a | to seperate each logType
 	struct logTypeFlags {
 		enum Value {
 			addPlus = 0x01,
@@ -160,6 +165,7 @@ namespace loggey {
 		};
 	};
 
+	// Set the console color. color codes are in loggey::loggey_settings
 	inline void setConsoleColor(uint8_t color)
 	{
 #ifdef LOGGEY_WIN
@@ -172,6 +178,10 @@ namespace loggey {
 #endif // LOGGEY_UNIX
 	}
 
+	
+	// logType is a type for defining different logs, heres an example: you want a logType for erros and a logType for warnings,
+	// So we define a logType called ERROR and set it to be red and its prefix as "ERROR" and with what flags we want!
+	// Now when we call log() and pass in our ERROR logType it will make a red log
 	class logType {
 	public:
 		uint8_t color = loggey_settings::prefixColor;  // Prefix Color
@@ -198,6 +208,7 @@ namespace loggey {
 		}
 	};
 
+	// log output to the console/terminal, this takes in a logType and a string to log
 	inline void log(const logType& logtype, const std::string& Text) {
 		// If addTime is a flag from logtype we will add the time to the log
 		if (logtype.flags & logTypeFlags::addTime) {
