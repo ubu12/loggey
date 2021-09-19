@@ -203,7 +203,7 @@ namespace loggey {
 		if (logtype.flags & logTypeFlags::addTime) {
 			// Current date/time based on current system
 			time_t now_seconds = time(0);
-    		struct tm *now = gmtime(&now_seconds);
+    		struct tm *now = gmtime_r(&now_seconds, now);
 			// Convert now to tm struct for local timezone
 			tm* localtm = localtime_r(&now_seconds, now);
 			
