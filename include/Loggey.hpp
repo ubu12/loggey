@@ -11,7 +11,11 @@
 	How do I use Loggey?
  	there is an example application and docs are on the github:
 	https://github.com/Spedzay/loggey/
-	
+
+	How do I change default colors?
+	If your text editor supports searching, search for inside this file:
+	LoggeySettings
+
 	Contact me:
 	- mail: admin@ambrosia.club
 	- matrix: @spedzay:straya.xyz
@@ -126,6 +130,7 @@ namespace loggey {
 		\__ \/ -_)  _|  _| | ' \/ _` (_-<
 		|___/\___|\__|\__|_|_||_\__, /__/
 		                        |___/    
+		LoggeySettings
 
 		Change colors for Loggey Functions and Text!
 
@@ -137,7 +142,7 @@ namespace loggey {
 		static uint8_t flagPlusColor = loggey::colors::pink;
 		static uint8_t flagBracketsColor = loggey::colors::light_gray;
 		static uint8_t flagTimeColor = loggey::colors::gray;
-		static bool timeUTC = false;
+		static bool timeUTC = true;
 
 		// Generic
 		static uint8_t textColor = loggey::colors::white;
@@ -191,7 +196,6 @@ namespace loggey {
 			flags = logFlag;
 			prefix = prefixText;
 		}
-	private:
 	};
 
 	inline void log(const logType& logtype, const std::string& Text) {
@@ -239,7 +243,7 @@ namespace loggey {
 		}
 		setConsoleColor(loggey_settings::textColor); std::cout << Text << std::endl;;
 	}
-	
+
 }
 
 // === End loggey namespace === //
