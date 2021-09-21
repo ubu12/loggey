@@ -23,7 +23,7 @@ This will define a logType called ALERT thats prefix is "Alert" and is red.
 We also add [+] in front of it using the flag logTypeFlags::addPlus
 
 ```cpp
-log(ALERT, "Loggey, the single header C++17 logging library");
+loggey::log(ALERT, "Loggey, the single header C++17 logging library");
 ```
 Now lets log some text! 
 the log function is from the loggey:: namespace, 
