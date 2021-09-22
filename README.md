@@ -14,6 +14,7 @@ Just `#include "loggey.hpp"` Into your project and compile with C++17
 Tested Compilers: gcc, msvc clang-cl, mingw(had issues with inline variables for me)
 
 ## Loggey Documentation
+Writing a WIKI, this is temp
 
 ```cpp
 loggey::logType ALERT = { loggey::colors::red,
@@ -35,6 +36,17 @@ find the loggey_settings namespace and change any of the fields to your liking!
 logTypes and loggey_settings can be modified on the fly as the program runs, if you wish to change a logType's flags or
 change the text color to green to look nicer, you can do so!
 
+## License 
+Check the LICENSE file in this github repository.
+
+## For Developers/Contributors
+Check the [Projects](https://github.com/Spedzay/loggey/projects) board on the GitHub.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 
+I would appreciate [Conventional Commits](https://www.conventionalcommits.org/) for commit messages and descriptions :)
+
+## Security
+Check the SECURITY file in this github repository. 
+
 ## Donations
 If you wish to use another payment method please contact me!
 
@@ -42,15 +54,6 @@ If you wish to use another payment method please contact me!
 * **Litecoin**: `LXAcUVGiDp8DGMCJ5L21ExWpkuWRHxqmzM`
 * **Ethereum**: `0x4f10C214F271d969E7ff69CE73783A77dD762e2f`
 
-## Contacts
+## Contact Me
 * **Email**: `admin@ambrosia.club`
 * **Discord**: `zayy#4201`
-
-## License 
-Check the LICENSE file in this github repository.
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 
-
-## Security
-Check the SECURITY file in this github repository. 
