@@ -35,13 +35,22 @@ find the loggey_settings namespace and change any of the fields to your liking!
 logTypes and loggey_settings can be modified on the fly as the program runs, if you wish to change a logType's flags or
 change the text color to green to look nicer, you can do so!
 
-## License 
+## Donations
+If you wish to use another payment method please contact me!
 
+* Bitcoin: bc1qqyrx74ws33w2wuumw0fdzvejgu6xlkd5tyrtx9
+* Litecoin: LXAcUVGiDp8DGMCJ5L21ExWpkuWRHxqmzM
+* Ethereum: 0x4f10C214F271d969E7ff69CE73783A77dD762e2f
+
+## Contacts
+* Email: admin@ambrosia.club
+* Discord: zayy#4201
+
+## License 
 Check the LICENSE file in this github repository.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 
 
 ## Security
-
 Check the SECURITY file in this github repository. 
