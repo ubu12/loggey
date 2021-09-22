@@ -38,13 +38,13 @@ change the text color to green to look nicer, you can do so!
 ## Donations
 If you wish to use another payment method please contact me!
 
-* Bitcoin: bc1qqyrx74ws33w2wuumw0fdzvejgu6xlkd5tyrtx9
-* Litecoin: LXAcUVGiDp8DGMCJ5L21ExWpkuWRHxqmzM
-* Ethereum: 0x4f10C214F271d969E7ff69CE73783A77dD762e2f
+* **Bitcoin**: `bc1qqyrx74ws33w2wuumw0fdzvejgu6xlkd5tyrtx9`
+* **Litecoin**: `LXAcUVGiDp8DGMCJ5L21ExWpkuWRHxqmzM`
+* **Ethereum**: `0x4f10C214F271d969E7ff69CE73783A77dD762e2f`
 
 ## Contacts
-* Email: admin@ambrosia.club
-* Discord: zayy#4201
+* **Email**: `admin@ambrosia.club`
+* **Discord**: `zayy#4201`
 
 ## License 
 Check the LICENSE file in this github repository.
