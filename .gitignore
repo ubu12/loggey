@@ -5,6 +5,7 @@
 
 *.exe
 *.out
+*.dll 
 
 #please add any other gitignores for your own build setup and ide!
 

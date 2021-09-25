@@ -52,6 +52,7 @@
 #ifndef LOGGEY_H
 #define LOGGEY_H
 
+#define _POSIX_THREAD_SAFE_FUNCTIONS // MinGW Support for gmtime_r
 // - Standard Library Includes
 #include <iostream>
 #include <string>
@@ -68,7 +69,7 @@
 // Windows
 #ifdef LOGGEY_WIN
 // Windows specific includes and defines
-#include <Windows.h>
+#include <windows.h>
 #define WIN32_LEAN_AND_MEAN
 #define VC_EXTRALEAN
 #endif
