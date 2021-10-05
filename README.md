@@ -11,7 +11,7 @@ for logging output to the terminal/console(windows)
 
 Just `#include "loggey.hpp"` Into your project and compile with C++17
 
-Tested Compilers: gcc, msvc clang-cl, mingw(had issues with inline variables for me)
+Tested Compilers: gcc, msvc, clang-cl, mingw
 
 ## Loggey Documentation
 Writing a WIKI, this is temp
