@@ -257,13 +257,10 @@ namespace loggey {
 
 }
 
-// === End loggey namespace === //
-
 // This will let you use lg as the namespace ONLY if its not already defined.
 #ifdef lg
 #else
 namespace lg = loggey;
 #endif
 
-// === End loggey.h header guard === //
-#endif
+#endif // LOGGEY_H
