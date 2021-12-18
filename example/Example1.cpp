@@ -7,11 +7,11 @@ using namespace std;
 using namespace loggey;
 
 
-logType MESSAGE = { colors::orange,
-	"Init", logTypeFlags::addPrefixEncasing };
+LogType MESSAGE = { colors::orange,
+	"Init", LogTypeFlags::addPrefixEncasing };
     
-logType LOG = { colors::light_blue,
-	"LOG", logTypeFlags::addTime };
+LogType LOG = { colors::light_blue,
+	"LOG", LogTypeFlags::addTime };
 
 int main() {
     loggey_settings::textColor = colors::magenta;
