@@ -193,8 +193,9 @@ namespace loggey {
         }
     };
 
+    template <typename T>
     // log output to the console/terminal, this takes in a logType and a string to log
-    inline void log(const LogType& logtype, const std::string& logText) {
+    inline void log(const LogType& logtype, T logText) {
         // If addTime is a flag from logtype we will add the time to the log
         if (logtype.flags & LogTypeFlags::addTime) {
             // Current date/time based on current system
