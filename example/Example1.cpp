@@ -8,17 +8,17 @@ using namespace loggey;
 
 
 LogType MESSAGE = { colors::orange,
-	"Init", LogTypeFlags::addPrefixEncasing };
+	"Init", LogTypeFlags::add_prefix_encasing };
     
 LogType LOG = { colors::light_blue,
-	"LOG", LogTypeFlags::addTime };
+	"LOG", LogTypeFlags::add_time };
 
 int main() {
-    loggey_settings::textColor = colors::magenta;
+    loggey_settings::text_color = colors::magenta;
     
     log(MESSAGE, "-- Loggey, the single header C++17 logging library --");
 													
-    loggey_settings::textColor = colors::white;
+    loggey_settings::text_color = colors::white;
     
     log(LOG, "Loggey is written by Spedzay");
     log(LOG, "Any contributions are welcome!");
