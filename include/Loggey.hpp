@@ -128,13 +128,13 @@ namespace loggey {
     */
     namespace loggey_settings {
         // Flags
-        static uint8_t flagPlusColor = loggey::colors::pink;
-        static uint8_t flagBracketsColor = loggey::colors::light_gray;
-        static uint8_t flagTimeColor = loggey::colors::gray;
+        static uint8_t flag_plus_color = loggey::colors::pink;
+        static uint8_t flag_brackets_color = loggey::colors::light_gray;
+        static uint8_t flag_time_color = loggey::colors::gray;
 
         // Generic
-        static uint8_t textColor = loggey::colors::white;
-        static uint8_t prefixColor = loggey::colors::red;
+        static uint8_t text_color = loggey::colors::white;
+        static uint8_t prefix_color = loggey::colors::red;
     }
 
     // Flags for logType's, What each flag does is documented on the github
@@ -143,24 +143,24 @@ namespace loggey {
     // With a | to seperate each logType
     struct LogTypeFlags {
         enum Value {
-            addPlus = 0x01,
-            addPrefixEncasing = 0x02,
-            addTime = 0x04
+            add_plus = 0x01,
+            add_prefix_encasing = 0x02,
+            add_time = 0x04
             //SOMETHING_ELSE = 0x10,
             //SOMETHING_COMPLETELY_DIFFERENT = 0x20
         };
     };
 
     // Set the console color. color codes are in loggey::loggey_settings
-    inline void setConsoleColor(uint8_t color)
+    inline void SetConsoleColor(uint8_t color)
     {
 #ifdef LOGGEY_WIN
         static const HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
         SetConsoleTextAttribute(handle, colors::black << 4 | color);
 #endif // LOGGEY_WIN
 #ifdef LOGGEY_UNIX
-        const std::string colorOutputText = "\033[" + std::to_string(color) + "m";
-        std::cout << colorOutputText;
+        const std::string color_output = "\033[" + std::to_string(color) + "m";
+        std::cout << color_output;
 #endif // LOGGEY_UNIX
     }
 
@@ -170,37 +170,37 @@ namespace loggey {
     // Now when we call log() and pass in our ERROR LogType it will make a red log
     class LogType {
     public:
-        uint8_t color = loggey_settings::prefixColor;  // Prefix Color
+        uint8_t color = loggey_settings::prefix_color;  // Prefix Color
         std::string prefix; // Prefix text aka "PrefixExample: logText"
         int flags; // Flags aka addPlus will make it "[+] PrefixExample: logText"
 
         // ik this is bad but my ass cant figure out how to do it. (constructor overloading :vomit:)  i think this is the best way to do it, c++ 2021 fix when - stalin
         // TODO: ^
-        LogType(uint8_t prefixColor, const std::string& prefixText, int logFlag) {
-            color = prefixColor;
-            prefix = prefixText;
-            flags = logFlag;
+        LogType(uint8_t prefix_color, const std::string& prefix_text, int log_flag) {
+            color = prefix_color;
+            prefix = prefix_text;
+            flags = log_flag;
         }
-        LogType(uint8_t prefixColor, const std::string& prefixText) {
-            color = prefixColor;
-            prefix = prefixText;
+        LogType(uint8_t prefix_color, const std::string& prefix_text) {
+            color = prefix_color;
+            prefix = prefix_text;
         }
-        LogType(const std::string& prefixText) {
-            prefix = prefixText;
+        LogType(const std::string& prefix_text) {
+            prefix = prefix_text;
         }
-        LogType(const std::string& prefixText, int logFlag) {
-            flags = logFlag;
-            prefix = prefixText;
+        LogType(const std::string& prefix_text, int log_flag) {
+            flags = log_flag;
+            prefix = prefix_text;
         }
     };
 
     template <typename T>
-    // log output to the console/terminal, this takes in a logType and a string to log
-    inline void log(const LogType& logtype, T logText) {
+    // log output to the console/terminal, this takes in a LogType and a string to log
+    inline void log(const LogType& logtype, T log_text) {
         // If addTime is a flag from logtype we will add the time to the log
-        if (logtype.flags & LogTypeFlags::addTime) {
+        if (logtype.flags & LogTypeFlags::add_time) {
             // Current date/time based on current system
-            setConsoleColor(loggey_settings::flagTimeColor);
+            SetConsoleColor(loggey_settings::flag_time_color);
 
             auto time = std::time(nullptr);
             std::cout << std::put_time(std::localtime(&time), "%T") << " "; // ISO 8601 format.
@@ -208,25 +208,25 @@ namespace loggey {
         }
 
         // If addPlus is a flag from logtype we will add a [+] to the log.
-        if (logtype.flags & LogTypeFlags::addPlus) {
-            setConsoleColor(loggey_settings::flagBracketsColor);  std::cout << "[";
-            setConsoleColor(loggey_settings::flagPlusColor); std::cout << "+";
-            setConsoleColor(loggey_settings::flagBracketsColor);  std::cout << "] ";
+        if (logtype.flags & LogTypeFlags::add_plus) {
+            SetConsoleColor(loggey_settings::flag_brackets_color);  std::cout << "[";
+            SetConsoleColor(loggey_settings::flag_plus_color); std::cout << "+";
+            SetConsoleColor(loggey_settings::flag_brackets_color);  std::cout << "] ";
         }
         // If addPrefix is a flag from logtype we will add [this] around the prefix of the log.
-        if (logtype.flags & LogTypeFlags::addPrefixEncasing) {
-            setConsoleColor(loggey_settings::flagBracketsColor); std::cout << "[";
-            setConsoleColor(logtype.color); std::cout << logtype.prefix;
-            setConsoleColor(loggey_settings::flagBracketsColor); std::cout << "] ";
+        if (logtype.flags & LogTypeFlags::add_prefix_encasing) {
+            SetConsoleColor(loggey_settings::flag_brackets_color); std::cout << "[";
+            SetConsoleColor(logtype.color); std::cout << logtype.prefix;
+            SetConsoleColor(loggey_settings::flag_brackets_color); std::cout << "] ";
         }
 
         // if theres no flags in logtype we will just write the colored prefix like normal.
         else {
-            setConsoleColor(logtype.color); std::cout << logtype.prefix << " ";
+            SetConsoleColor(logtype.color); std::cout << logtype.prefix << " ";
         }
-        setConsoleColor(loggey_settings::textColor); std::cout << logText << std::endl;;
+        SetConsoleColor(loggey_settings::text_color); 
+        std::cout << log_text << std::endl;;
     }
 
 } // loggey
-
 #endif // LOGGEY_H
