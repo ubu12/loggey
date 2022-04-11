@@ -14,7 +14,8 @@
     LoggeySettings
     Contact me:
     - mail: admin@ambrosia.club
-    - matrix: @spedzay:straya.xyz
+    - discord: on my github profile
+    
     -- Begin MIT License. --
     Copyright (c) 2021 Spedzay
     Permission is hereby granted, free of charge, to any person obtaining
