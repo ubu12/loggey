@@ -113,9 +113,6 @@ Edit the `loggey_settings` namespace in `Loggey.hpp` to change default colors an
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-[Insert your chosen license here]
 
 ## Author
 
@@ -123,4 +120,4 @@ Loggey is developed by Spedzay/Stali.
 
 ---
 
-For more information, bug reports, or feature requests, please visit our [GitHub repository](https://github.com/spedzay/loggey).
+For more information, bug reports, or feature requests, please visit our [GitHub repository](https://github.com/ubu12/loggey).
