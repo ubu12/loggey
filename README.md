@@ -1,6 +1,6 @@
 # Loggey (In Development)
 
-[![CodeFactor](https://www.codefactor.io/repository/github/spedzay/loggey/badge)](https://www.codefactor.io/repository/github/spedzay/loggey)
+[![CodeFactor](https://www.codefactor.io/repository/github/ubu12/loggey/badge)](https://www.codefactor.io/repository/github/ubu12/loggey)
 
 Loggey is a cross-platform, C++17, single-header console logging library designed for simplicity and flexibility.
 
