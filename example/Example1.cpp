@@ -1,31 +1,33 @@
 // Loggey example.
-// written by: Spedzay
+// Originally written by: Spedzay
+// Updated for fast_io and C++23 by stali
+// Refactored for optimized Loggey
 
 #include "../include/Loggey.hpp"
 
-using namespace std;
-using namespace loggey;
+int main()
+{
+    using namespace loggey;
 
+    // Define log types
+    constexpr LogType MESSAGE{colors::orange, "Init", static_cast<uint8_t>(LogTypeFlags::addPrefixEncasing)};
+    constexpr LogType LOG{colors::light_blue, "LOG", static_cast<uint8_t>(LogTypeFlags::addTime)};
 
-logType MESSAGE = { colors::orange,
-	"Init", logTypeFlags::addPrefixEncasing };
+    // Configure settings
+    settings.textColor = colors::magenta;
     
-logType LOG = { colors::light_blue,
-	"LOG", logTypeFlags::addTime };
+    log(MESSAGE, "-- Loggey, the single header C++23 logging library with fast_io --");
 
-
-
-int main() {
-    loggey_settings::textColor = colors::magenta;
+    // Change text color for subsequent logs
+    settings.textColor = colors::white;
     
-    log(MESSAGE, "-- Loggey, the single header C++17 logging library --");
-
-    loggey_settings::textColor = colors::white;
-    
+    // Log messages
     log(LOG, "Loggey is written by Spedzay");
     log(LOG, "Any contributions are welcome!");
-    log(LOG, "Loggey is indev as of right now");
+    log(LOG, "Loggey has been updated to use fast_io and C++23 features");
 
-    cin.get();
+    // Prompt user to exit
+    fast_io::io::println("Press Enter to exit...");
+
     return 0;
 }
